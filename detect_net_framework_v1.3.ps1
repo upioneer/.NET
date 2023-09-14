@@ -47,16 +47,12 @@ $versions = @(
     [pscustomobject]@{Version="533325"; FriendlyVersion = "4.8.1"}
 )
 
-
 if ($dotnetv3.Install -eq '1' -and $dotnetv3.SP -ne $null) {
     $sp = $dotnetv3.SP
     Write-Host ".NET v3.0 SP$sp" -ForegroundColor Cyan
 } else {
     Write-Host ".NET v3.0" -ForegroundColor Cyan
 }
-
-
-
 
 switch ($dotnetversion) {
     "378389" {Write-Host ".NET Framework v4.5 detected" -ForegroundColor Cyan}
