@@ -11,7 +11,8 @@ This script is designed to identify which .NET versions are installed on a works
 
 
 ## References
-
 [.NET Deployment Guide for Developers](https://learn.microsoft.com/en-us/dotnet/framework/deployment/deployment-guide-for-developers#detect-net-framework)
 
 [Detect .NET Service Pack](https://learn.microsoft.com/en-us/troubleshoot/developer/dotnet/framework/general/determine-dotnet-versions-service-pack-levels)
+
+[Find Installed Version](https://learn.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)
