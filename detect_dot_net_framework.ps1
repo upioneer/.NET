@@ -1,6 +1,11 @@
-$dotnetv3 = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.0')
+$dotnetv3 = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.0').Version
 $dotnetv35 = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5').Version
 $dotnetv4 = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full').Release
+
+$legacydotnets = @(
+"$dotnetv3",
+"$dotnetv35"
+)
 
 Write-Host ""
 
@@ -41,12 +46,20 @@ function Get-FriendlyVersion {
 
 Write-Host "The following .NET versions were detected:" -ForegroundColor DarkCyan
 
+<#
 if ($dotnetv3.Install -eq '1' -and $dotnetv3.SP -ne $null) {
     $sp = $dotnetv3.SP
     Write-Host ".NET v3.0 SP$sp" -ForegroundColor Cyan
 } else {
     Write-Host ".NET v3.0" -ForegroundColor Cyan
 }
+#>
+
+foreach ($legacydotnet in $legacydotnets) {
+    if ($legacydotnet -ne $null) {
+        Write-Host v$legacydotnet -ForegroundColor Cyan
+    }
+}
 
 $friendlyVersion = Get-FriendlyVersion -releaseNumber $dotnetv4
-Write-Host ".NET v$friendlyVersion" -ForegroundColor Cyan
+Write-Host "v$friendlyVersion" -ForegroundColor Cyan
