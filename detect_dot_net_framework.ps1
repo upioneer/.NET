@@ -61,5 +61,5 @@ foreach ($legacydotnet in $legacydotnets) {
     }
 }
 
-$friendlyVersion = Get-FriendlyVersion -releaseNumber $dotnetv4
+$friendlyVersion = Get-FriendlyVersion -releaseNumber $dotnetv4; $friendlyVersion = $friendlyVersion[0]
 Write-Host "v$friendlyVersion" -ForegroundColor Cyan
