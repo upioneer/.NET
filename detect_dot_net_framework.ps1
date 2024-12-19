@@ -44,7 +44,7 @@ function Get-FriendlyVersion {
     }
 }
 
-Write-Host "The following .NET versions were detected:" -ForegroundColor DarkCyan
+Write-Host "The following .NET versions were detected:" -BackgroundColor Black
 
 <#
 if ($dotnetv3.Install -eq '1' -and $dotnetv3.SP -ne $null) {
@@ -61,5 +61,5 @@ foreach ($legacydotnet in $legacydotnets) {
     }
 }
 
-$friendlyVersion = Get-FriendlyVersion -releaseNumber $dotnetv4; $friendlyVersion = $friendlyVersion[0]
+$friendlyVersion = Get-FriendlyVersion -releaseNumber $dotnetv4
 Write-Host "v$friendlyVersion" -ForegroundColor Cyan
